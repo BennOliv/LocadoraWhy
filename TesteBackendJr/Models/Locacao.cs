@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TesteBackEndJr.Models
+namespace TesteBackendJr.Models
 {
     public class Locacao
     {
@@ -17,22 +17,30 @@ namespace TesteBackEndJr.Models
         public DateTime DataLocacao { get; set; }
         public DateTime DataLimiteDevolucao { get; set; }
         public DateTime DataDevolucao { get; set; }
-        public decimal ValorLocacao { get; set; }
-        public decimal ValorMultaAplicada { get; private set; }
-        public decimal ValorTotal { get; private set; }
+        public double ValorLocacao { get; set; }
+        public double ValorMulta { get; set; }
+        public double ValorTotal { get; private set; }
 
-        public void GeraTotal(double ?multa) {
-            decimal _multa;
-            if (multa.HasValue)
+        public void GeraTotal(DateTime date) {
+            if (date.CompareTo(DataLimiteDevolucao) <= 0)//devoluão atrasada
             {
-                 _multa = (decimal) multa.Value;
+                ValorTotal = ValorLocacao;
+                return;
             }
-            else 
-            {
-                _multa = 0;
-            }
-            ValorMultaAplicada = _multa;
-            ValorTotal = ValorLocacao + ValorMultaAplicada;
+            ValorTotal = ValorLocacao + ValorMulta;
+        }
+
+        public Locacao(Cliente cliente, Filme filme, double valorLocacao, double valorMulta, DateTime dataLocacao, DateTime dataLimiteDevolucao)
+        {
+            Cliente = cliente;
+            Filme = filme;
+            ValorLocacao = valorLocacao;
+            ValorMulta = valorMulta;
+            DataLocacao = dataLocacao;
+            DataLimiteDevolucao = dataLimiteDevolucao;
+        }
+        public Locacao()
+        {
         }
     }
 }
