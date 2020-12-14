@@ -8,7 +8,6 @@ namespace TesteBackendJr.Models.DTO
 {
     public class ClienteDTO
     {
-        public long Id { get; set; }
         public string Nome { get; set; }
         public long CPF { get; set; }
         public bool Ativo { get; set; }

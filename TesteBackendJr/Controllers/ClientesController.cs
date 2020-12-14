@@ -85,11 +85,11 @@ namespace TesteBackendJr.Controllers
         public  ActionResult<Cliente> PostCliente(ClienteDTO cliente)
         {
 
-            cliente.Id = _clienteService.Cadastra(cliente);
-            if(cliente.Id == 0)
+            var ret = _clienteService.Cadastra(cliente);
+            if(ret == 0)
                 return BadRequest("CPF já cadastrado.");
 
-            return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
+            return CreatedAtAction("GetCliente", ret, cliente);
         }
 
         // DELETE: api/Clientes/5

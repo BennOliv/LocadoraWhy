@@ -25,7 +25,7 @@ namespace TesteBackendJr.Services
 
             var cli = new Cliente("Jorge Silva", 11111111100, true);
             var fil = new Filme("Corrida contra o tempo", 1, 21.5, true);
-            var loc = new Locacao(cli, fil, fil.PrecoLocacao, 10.75, DateTime.Now, DateTime.Now.AddDays(7));
+            var loc = new Locacao(cli, fil, 8.5);
 
             _context.Clientes.Add(cli);
             _context.Filmes.Add(fil);

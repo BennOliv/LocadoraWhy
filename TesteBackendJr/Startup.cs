@@ -38,6 +38,7 @@ namespace TesteBackendJr
             services.AddScoped<SeedingService>();
             services.AddScoped<ClienteService>();
             services.AddScoped<FilmeService>();
+            services.AddScoped<LocacaoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
