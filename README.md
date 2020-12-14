@@ -8,7 +8,7 @@ Após baixar, insira no console:
 
 /api/Cliente
 
-       rota  bodyRequ. bodyResp.   Resultado
+Verbo  Rota  BodyRequ. BodyResp.   Resultado
 							
 GET    /     null      [{cliente}] Retorna Lista com Clientes registrados no DB.
 
