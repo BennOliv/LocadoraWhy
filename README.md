@@ -2,11 +2,14 @@
 API de uma suposta locadora 
 
 Após baixar, insira no console:
- > dotnet build
+ > >dotnet build
 	
- > dotnet ef database update
-
-/api/Cliente
+ > >dotnet ef database update
+ 
+ 
+(Para Melhor visualização da doc. abaixo veja o arquivo raw)
+ 
+ /api/Cliente
 
 Verbo  Rota  BodyRequ. BodyResp.   Resultado
 							
