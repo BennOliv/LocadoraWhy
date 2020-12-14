@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TesteBackendJr.Models
+namespace TesteBackendJr.Models.Entities
 {
     public class Locacao
     {

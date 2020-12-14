@@ -36,6 +36,7 @@ namespace TesteBackendJr
             services.AddControllers();
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<ClienteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

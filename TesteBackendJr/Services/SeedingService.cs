@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TesteBackendJr.Models;
+using TesteBackendJr.Models.Entities;
 using TesteBackendJr.Repositories;
 
 namespace TesteBackendJr.Services
