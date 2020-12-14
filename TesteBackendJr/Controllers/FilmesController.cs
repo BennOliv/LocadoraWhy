@@ -15,59 +15,59 @@ namespace TesteBackendJr.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientesController : ControllerBase
+    public class FilmesController : ControllerBase
     {
-        private readonly ClienteService _clienteService;
+        private readonly FilmeService _filmeService;
 
-        public ClientesController(ClienteService clienteService)
+        public FilmesController(FilmeService filmeService)
         {
-            _clienteService = clienteService;
+            _filmeService = filmeService;
         }
 
-        // GET: api/Clientes
+        // GET: api/Filmes
         [HttpGet]
-        public ActionResult<IEnumerable<Cliente>> GetClientes()
+        public ActionResult<IEnumerable<Filme>> GetFilmes()
         {
-            return _clienteService.FindAll();
+            return _filmeService.FindAll();
         }
 
-        // GET: api/Clientes/5
+        // GET: api/Filmes/5
         [HttpGet("{id}")]
-        public ActionResult<Cliente> GetCliente(long id)
+        public ActionResult<Filme> GetFilme(long id)
         {
-            var cliente = _clienteService.BuscaCliente(id);
+            var filme = _filmeService.BuscaFilme(id);
 
-            if (cliente == null)
+            if (filme == null)
             {
                 return NotFound();
             }
 
-            return cliente;
+            return filme;
         }
 
-        // PUT: api/Clientes/5
+        // PUT: api/Filmes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public ActionResult<Cliente> PutCliente(long id, Cliente cliente)
+        public ActionResult<Filme> PutFilme(long id, Filme filme)
         {
-            if (id != cliente.Id)
+            if (id != filme.Id)
             {
                 return BadRequest("Ids não correspondentes.");
             }
 
             try
             {
-                var ret = _clienteService.Edit(id, cliente);
+                var ret = _filmeService.Edit(id, filme);
                 if (ret == null)
                 {
-                    return BadRequest("CPF já cadastrado.");
+                    return BadRequest("Filme já cadastrado.");
                 }
                 return Ok(ret);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (_clienteService.BuscaCliente(id) == null)
+                if (_filmeService.BuscaFilme(id) == null)
                 {
                     return NotFound();
                 }
@@ -78,25 +78,25 @@ namespace TesteBackendJr.Controllers
             }
         }
 
-        // POST: api/Clientes
+        // POST: api/Filmes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public  ActionResult<Cliente> PostCliente(ClienteDTO cliente)
+        public  ActionResult<Filme> PostFilme(Filme filme)
         {
 
-            cliente.Id = _clienteService.Cadastra(cliente);
-            if(cliente.Id == 0)
-                return BadRequest("CPF já cadastrado.");
+            filme.Id = _filmeService.Cadastra(filme);
+            if(filme.Id == 0)
+                return BadRequest("Filme já cadastrado.");
 
-            return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
+            return CreatedAtAction("GetFilme", new { id = filme.Id }, filme);
         }
 
-        // DELETE: api/Clientes/5
+        // DELETE: api/Filmes/5
         [HttpDelete("{id}")]
-        public ActionResult DeleteCliente(long id)
+        public ActionResult DeleteFilme(long id)
         {
-            var ret = _clienteService.Desativa(id);
+            var ret = _filmeService.Desativa(id);
 
             if (ret == false)
                 return NotFound();

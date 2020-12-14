@@ -12,7 +12,7 @@ namespace TesteBackendJr.Models.Entities
         public long CPF { get; set; }
         public bool Ativo { get; set; }
 
-        public ICollection<Locacao> Locacaos { get; set; }
+        public ICollection<Locacao> Locacaos { get; set; } = new List<Locacao>();
 
         public Cliente(string nome, long cPF, bool ativo)
         {
@@ -24,5 +24,16 @@ namespace TesteBackendJr.Models.Entities
         public Cliente()
         {
         }
+
+        public void AddLocacaos(Locacao locacao)
+        {
+            Locacaos.Add(locacao);
+        }
+        public void RemoveLocacaos(Locacao locacao) 
+        {
+            Locacaos.Remove(locacao);
+        }
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,9 +14,11 @@ namespace TesteBackendJr.Models.Entities
 
         //Eu faria mais uma tabela para que pudessem ser locados. Mas como no desafio citava, especificamente, "Clientes, Filmes e Locacao" achei melhor só fazer o que foi pedido.
         //public ICollection<Filme> Filmes { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataLocacao { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataLimiteDevolucao { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataDevolucao { get; set; }
         public double ValorLocacao { get; set; }
         public double ValorMulta { get; set; }

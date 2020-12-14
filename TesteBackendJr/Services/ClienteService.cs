@@ -45,7 +45,7 @@ namespace TesteBackendJr.Services
 
         public Cliente Edit(long id, Cliente cliente)
         {
-            if (Context.Clientes.Any(cli => cli.CPF == cliente.CPF))
+            if (Context.Clientes.Any(cli => cli.CPF == cliente.CPF && cli.Id != id))
             {
                 return null;
             }

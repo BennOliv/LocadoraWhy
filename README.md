@@ -9,7 +9,7 @@ Após baixar, insira no console:
  
 (Para Melhor visualização da doc. abaixo veja o arquivo raw)
  
- /api/Cliente
+ /api/Clientes
 
 Verbo  Rota  BodyRequ. BodyResp.   Resultado
 							
@@ -20,5 +20,20 @@ GET    /{id} null      {cliente}   Retorna um Cliente em específico.
 POST   /     cliente   {cliente}   Cadastra um cliente no BD.
 
 PUT    /{id} cliente   {cliente}   Atualiza Cadastro.
+
+DELETE /{id} null      null        Desativa Cadastro.
+
+
+ /api/Filmes
+
+Verbo  Rota  BodyRequ. BodyResp.   Resultado
+							
+GET    /     null      [{filme}]   Retorna Lista com Clientes registrados no DB.
+
+GET    /{id} null      {filme}     Retorna um Filme em específico.
+
+POST   /     filme     {filme}     Cadastra um filme no BD.
+
+PUT    /{id} filme     {filme}     Atualiza Cadastro.
 
 DELETE /{id} null      null        Desativa Cadastro.
