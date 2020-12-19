@@ -28,7 +28,7 @@ namespace TesteBackendJr.Models.DTO
             DataDevolucao = locacao.DataDevolucao.ToString("MM/dd/yyyy");
             ValorMultaAplicada = ( locacao.ValorTotal == ValorLocacao ? 0 : locacao.ValorMulta);
             ValorTotal = locacao.ValorTotal;
-            observacao = (ValorMultaAplicada == 0 ? "Devolução dentro do prazo. Sem multa por atraso."
+            Observacao = (ValorMultaAplicada == 0 ? "Devolução dentro do prazo. Sem multa por atraso."
                                                     : "Devolução com atraso. Será cobrado R$"+ValorMultaAplicada+" de multa.");
         }
     }
