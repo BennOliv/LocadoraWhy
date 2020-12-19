@@ -2,9 +2,11 @@
 API de uma suposta locadora 
 
 Após baixar, insira no console:
- > >dotnet build
-	
- > >dotnet ef database update
+ >>dotnet build
+ 
+ >>cd .\TesteBackEndJr\
+ 
+ >>dotnet ef database update
  
  
  Link para a Collection do Postman:
