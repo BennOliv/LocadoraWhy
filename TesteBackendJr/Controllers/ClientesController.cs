@@ -33,7 +33,7 @@ namespace TesteBackendJr.Controllers
 
         // GET: api/Clientes/5
         [HttpGet("{id}")]
-        public ActionResult<Cliente> GetCliente(long id)
+        public ActionResult<Cliente> GetCliente(int id)
         {
             var cliente = _clienteService.BuscaCliente(id);
 
@@ -49,7 +49,7 @@ namespace TesteBackendJr.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public ActionResult<Cliente> PutCliente(long id, Cliente cliente)
+        public ActionResult<Cliente> PutCliente(int id, Cliente cliente)
         {
             if (id != cliente.Id)
             {
@@ -94,7 +94,7 @@ namespace TesteBackendJr.Controllers
 
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
-        public ActionResult DeleteCliente(long id)
+        public ActionResult DeleteCliente(int id)
         {
             var ret = _clienteService.Desativa(id);
 

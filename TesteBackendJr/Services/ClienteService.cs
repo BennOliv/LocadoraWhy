@@ -18,7 +18,7 @@ namespace TesteBackendJr.Services
             Context = context;
         }
 
-        public Cliente BuscaCliente(long id) {
+        public Cliente BuscaCliente(int id) {
             var ret = Context.Clientes.FirstOrDefault(x => x.Id == id);
             if (!ret.Nome.Equals(null))
             {
@@ -31,7 +31,7 @@ namespace TesteBackendJr.Services
             return Context.Clientes.ToList();
         }
 
-        public long Cadastra(ClienteDTO cliente)
+        public int Cadastra(ClienteDTO cliente)
         {
             var cli = cliente.ToCliente();
 
@@ -43,7 +43,7 @@ namespace TesteBackendJr.Services
             return cli.Id;
         }
 
-        public Cliente Edit(long id, Cliente cliente)
+        public Cliente Edit(int id, Cliente cliente)
         {
             if (Context.Clientes.Any(cli => cli.CPF == cliente.CPF && cli.Id != id))
             {
@@ -55,7 +55,7 @@ namespace TesteBackendJr.Services
             
             return Context.Clientes.Find(id);
         }
-        public bool Desativa(long id) 
+        public bool Desativa(int id) 
         {
             var cliente = Context.Clientes.Find(id);
             if (cliente == null)

@@ -9,7 +9,7 @@ namespace TesteBackendJr.Models.Entities
 {
     public class Filme
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public int Estoque { get; set; }
         public double PrecoLocacao { get; set; }

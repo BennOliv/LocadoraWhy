@@ -29,9 +29,9 @@ namespace TesteBackendJr
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var db = Configuration["ConnectionStrings:testeBackend"];
+            var db = Configuration["ConnectionStrings:testeBackendJr"];
 
-            services.AddDbContext<LocadoraContext>(options => options.UseSqlite(db));
+            services.AddDbContext<LocadoraContext>(options => options.UseSqlServer(db));
 
             services.AddControllers();
 

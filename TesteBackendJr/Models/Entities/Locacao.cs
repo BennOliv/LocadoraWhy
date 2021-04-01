@@ -9,7 +9,7 @@ namespace TesteBackendJr.Models.Entities
 {
     public class Locacao
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         [Display(Name ="ClienteId")]
         public Cliente Cliente { get; set; }
         [Display(Name = "FilmeId")]
@@ -42,7 +42,7 @@ namespace TesteBackendJr.Models.Entities
             }
             ValorTotal = ValorLocacao + ValorMulta;
         }
-        public Locacao(long id,Cliente cliente, Filme filme, double vlMulta)
+        public Locacao(int id,Cliente cliente, Filme filme, double vlMulta)
         {
             Id = id;
             Cliente = cliente;

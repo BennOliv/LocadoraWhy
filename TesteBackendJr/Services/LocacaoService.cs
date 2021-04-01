@@ -26,7 +26,7 @@ namespace TesteBackendJr.Services
              }
              return ret;
         }
-        public LocacaoInfoDTO BuscaLocacao(long id) 
+        public LocacaoInfoDTO BuscaLocacao(int id) 
         {
             return new LocacaoInfoDTO(context.Locacaos.Include(x => x.Cliente).Include(x => x.Filme)
                 .FirstOrDefault(x => x.Id == id));
@@ -97,7 +97,7 @@ namespace TesteBackendJr.Services
 
             return new LocacaoInfoDTO(locacao);
         }
-        public NotaDTO DevolveFilme(long id)
+        public NotaDTO DevolveFilme(int id)
         {
             var locacao = context.Locacaos.
                             Include(x => x.Cliente).Include(x => x.Filme).
@@ -108,7 +108,7 @@ namespace TesteBackendJr.Services
             context.Entry(locacao).State = EntityState.Modified;
             return new NotaDTO(locacao);
         }
-        public NotaDTO DevolverFilmeAtrasado(long id)
+        public NotaDTO DevolverFilmeAtrasado(int id)
         {
             var locacao = context.Locacaos.
                             Include(x => x.Cliente).Include(x => x.Filme).

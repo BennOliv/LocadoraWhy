@@ -33,7 +33,7 @@ namespace TesteBackendJr.Controllers
 
         // GET: api/Filmes/5
         [HttpGet("{id}")]
-        public ActionResult<Filme> GetFilme(long id)
+        public ActionResult<Filme> GetFilme(int id)
         {
             var filme = _filmeService.BuscaFilme(id);
 
@@ -49,7 +49,7 @@ namespace TesteBackendJr.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public ActionResult<Filme> PutFilme(long id, Filme filme)
+        public ActionResult<Filme> PutFilme(int id, Filme filme)
         {
             if (id != filme.Id)
             {
@@ -94,7 +94,7 @@ namespace TesteBackendJr.Controllers
 
         // DELETE: api/Filmes/5
         [HttpDelete("{id}")]
-        public ActionResult DeleteFilme(long id)
+        public ActionResult DeleteFilme(int id)
         {
             var ret = _filmeService.Desativa(id);
 

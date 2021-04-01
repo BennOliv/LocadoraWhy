@@ -8,7 +8,7 @@ namespace TesteBackendJr.Models.Entities
 {
     public class Cliente //Alteraria de clientes para Locador por causa da Linguagem Ubiqua
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public long CPF { get; set; }
         public bool Ativo { get; set; }

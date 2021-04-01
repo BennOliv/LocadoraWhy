@@ -23,7 +23,7 @@ namespace TesteBackendJr.Services
                 return;
             }
 
-            var cli = new Cliente("Jorge Silva", 11111111100, true);
+            var cli = new Cliente("Jorge Silva", 1111111111, true);
             var fil = new Filme("Corrida contra o tempo", 1, 21.5, true);
             var loc = new Locacao(cli, fil, 8.5);
 

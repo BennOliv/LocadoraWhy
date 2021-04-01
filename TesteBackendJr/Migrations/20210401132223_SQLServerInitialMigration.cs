@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TesteBackendJr.Migrations
 {
-    public partial class MigrationInicial : Migration
+    public partial class SQLServerInitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,11 +11,11 @@ namespace TesteBackendJr.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    CPF = table.Column<long>(type: "INTEGER", nullable: false),
-                    Ativo = table.Column<bool>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CPF = table.Column<long>(type: "bigint", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,12 +26,12 @@ namespace TesteBackendJr.Migrations
                 name: "Filmes",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Estoque = table.Column<int>(type: "INTEGER", nullable: false),
-                    PrecoLocacao = table.Column<double>(type: "REAL", nullable: false),
-                    Ativo = table.Column<bool>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estoque = table.Column<int>(type: "int", nullable: false),
+                    PrecoLocacao = table.Column<double>(type: "float", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,16 +42,16 @@ namespace TesteBackendJr.Migrations
                 name: "Locacaos",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ClienteId = table.Column<long>(type: "INTEGER", nullable: true),
-                    FilmeId = table.Column<long>(type: "INTEGER", nullable: true),
-                    DataLocacao = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DataLimiteDevolucao = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DataDevolucao = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ValorLocacao = table.Column<double>(type: "REAL", nullable: false),
-                    ValorMulta = table.Column<double>(type: "REAL", nullable: false),
-                    ValorTotal = table.Column<double>(type: "REAL", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClienteId = table.Column<int>(type: "int", nullable: true),
+                    FilmeId = table.Column<int>(type: "int", nullable: true),
+                    DataLocacao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataLimiteDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ValorLocacao = table.Column<double>(type: "float", nullable: false),
+                    ValorMulta = table.Column<double>(type: "float", nullable: false),
+                    ValorTotal = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

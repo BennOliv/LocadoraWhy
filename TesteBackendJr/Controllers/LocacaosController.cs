@@ -32,7 +32,7 @@ namespace TesteBackendJr.Controllers
 
         // GET: api/Locacaos/{id}
         [HttpGet("{id}")]
-        public ActionResult<LocacaoInfoDTO> GetLocacao(long id)
+        public ActionResult<LocacaoInfoDTO> GetLocacao(int id)
         {
             var locacao = locacaoService.BuscaLocacao(id);
 
@@ -60,7 +60,7 @@ namespace TesteBackendJr.Controllers
         }
         // PUT: api/Locacaos/{id}
         [HttpPut("{id}")]
-        public ActionResult<LocacaoInfoDTO> PutLocacao(long id, LocacaoDTO locacao)
+        public ActionResult<LocacaoInfoDTO> PutLocacao(int id, LocacaoDTO locacao)
         {
             if (id != locacao.Id)
             {
@@ -82,14 +82,14 @@ namespace TesteBackendJr.Controllers
 
         //GET: api/Locacaos/devolver/{id}
         [HttpGet("devolver/{id}")]
-        public ActionResult<NotaDTO> DevolveLocacao(long id)
+        public ActionResult<NotaDTO> DevolveLocacao(int id)
         {
             return locacaoService.DevolveFilme(id);
         }
 
         //GET: api/Locacaos/devolverAtrasado/{id}
         [HttpGet("devolverAtrasado/{id}")]
-        public ActionResult<NotaDTO> DevolveLocacaoAtrasado(long id)
+        public ActionResult<NotaDTO> DevolveLocacaoAtrasado(int id)
         {
             return locacaoService.DevolverFilmeAtrasado(id);
         }

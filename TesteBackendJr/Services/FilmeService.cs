@@ -17,7 +17,7 @@ namespace TesteBackendJr.Services
             Context = context;
         }
 
-        public Filme BuscaFilme(long id) {
+        public Filme BuscaFilme(int id) {
             var ret = Context.Filmes.FirstOrDefault(x => x.Id == id);
             if (!ret.Nome.Equals(null))
             {
@@ -30,7 +30,7 @@ namespace TesteBackendJr.Services
             return Context.Filmes.ToList();
         }
 
-        public long Cadastra(Filme filme)
+        public int Cadastra(Filme filme)
         {
             var fil = filme;
 
@@ -42,7 +42,7 @@ namespace TesteBackendJr.Services
             return fil.Id;
         }
 
-        public Filme Edit(long id, Filme filme)
+        public Filme Edit(int id, Filme filme)
         {
             if (Context.Filmes.Any(cli => cli.Nome.Equals(filme.Nome) && cli.Id != id))
             {
@@ -54,7 +54,7 @@ namespace TesteBackendJr.Services
             
             return Context.Filmes.Find(id);
         }
-        public bool Desativa(long id) 
+        public bool Desativa(int id) 
         {
             var filme = Context.Filmes.Find(id);
             if (filme == null)
